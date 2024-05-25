@@ -1,10 +1,11 @@
+import { Container } from "../styles/globalStyle";
 
 
 export default function Home() {
   return (
-     <>
-      <h1>a</h1>
-     </>
+     <Container>
+        <h1>a</h1>
+     </Container>
     
   );
 }

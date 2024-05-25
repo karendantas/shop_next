@@ -1,6 +1,10 @@
+
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import GlobalStyle from "../styles/globalStyle";
+import ThemeProviderNext from "../themeProvider/themeProvider";
+import { Header } from "../components/header";
+
 
 const roboto = Roboto(
   { weight : '400', 
@@ -18,9 +22,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="pt-br">
-      <body className={roboto.className}>{children}</body>
-      <GlobalStyle/>
+      <ThemeProviderNext>
+        <body className={roboto.className}>
+          <Header />
+          {children}
+        
+        </body>
+        <GlobalStyle/>
+      </ThemeProviderNext>
     </html>
+    
   );
 }

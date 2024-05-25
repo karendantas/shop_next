@@ -1,5 +1,5 @@
 "use client"
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const  GlobalStyle = createGlobalStyle`
     
@@ -10,9 +10,20 @@ const  GlobalStyle = createGlobalStyle`
     }
 
     body{
-
-        background-color: pink;
+        --webkit-font-smoothing: antialised;
+        background-color: ${props => props.theme['gray900']};
+        color: ${props => props.theme['gray100']};
     }
+
 `
 
 export default GlobalStyle;
+
+export const Container = styled.main`
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+        height: 100vh;
+        display: flex;
+
+`
