@@ -1,5 +1,8 @@
 "use client"
 
+import { useKeenSlider } from 'keen-slider/react';
+import 'keen-slider/keen-slider.min.css';
+
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -9,12 +12,12 @@ import camiseta3 from '../assets/3.png';
 
 const ProductsContainer = styled.div`
     display: flex;
-    gap: 2rem;
     width: 100%;
     //isso serve para que o lado esquerdo fique smepre grudado na tela
     max-width: calc( 100vw - (100vw - 1180px) / 2 );
     margin-left: auto;
     min-height: 656px;
+    overflow: hidden;
 `;
 
 const Product = styled.a`
@@ -22,7 +25,6 @@ const Product = styled.a`
   border-radius: 8px;
   cursor: pointer;
   position: relative;
-  padding: 0.25rem;
   overflow: hidden;
 
   display: flex;
@@ -69,10 +71,18 @@ const Product = styled.a`
   }
 `;
 export default function Home() {
+
+  const [sliderRef ] = useKeenSlider({
+    slides : {
+      perView: 3,
+      spacing: 48
+    }
+  })
+
   return (
 
-    <ProductsContainer>
-      <Product>
+    <ProductsContainer ref = {sliderRef} className='keen-slider'>
+      <Product className='keen-slider__slide'>
         <Image src={camiseta1.src} width={520} height={520} alt=""/>
 
         <footer>
@@ -81,14 +91,32 @@ export default function Home() {
         </footer>
       </Product>
 
-      <Product>
-        <Image src={camiseta1.src} width={520} height={520} alt=""/>
+      <Product className='keen-slider__slide'>
+        <Image src={camiseta2.src} width={520} height={520} alt=""/>
 
         <footer>
           <strong>Camiseta 1</strong>
           <span>R$ 79,90</span>
         </footer>
       </Product>
+      <Product className='keen-slider__slide'>
+        <Image src={camiseta3.src} width={520} height={520} alt=""/>
+
+        <footer>
+          <strong>Camiseta 1</strong>
+          <span>R$ 79,90</span>
+        </footer>
+      </Product>
+      <Product className='keen-slider__slide'>
+        <Image src={camiseta3.src} width={520} height={520} alt=""/>
+
+        <footer>
+          <strong>Camiseta 1</strong>
+          <span>R$ 79,90</span>
+        </footer>
+      </Product>
+
+   
     </ProductsContainer>
 
     
