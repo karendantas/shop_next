@@ -8,7 +8,7 @@ const HeaderContainer = styled.header`
    width: 100%;
    max-width: 1180px;
    margin: 0 auto;
-
+   
 
 `
 export function Header (){
